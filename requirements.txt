@@ -4,3 +4,8 @@ matplotlib
 pandas
 plotly
 sympy
+vtk
+PyQt5
+PySide2
+mayavi
+kaleido

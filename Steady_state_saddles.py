@@ -4,11 +4,11 @@ import numpy as np
 
 # Coefficients and initial conditions
 
-p = 3  # alpha
-q = 2  # betha
+p = 2  # alpha
+q = 1  # betha
 
-f = 2
-g = 3  #!! when g > d, gA is smaller than dA
+f = 3
+g = 2  #!! when g > d, gA is smaller than dA
 d = 1
 
 t = 2 # this is z0 in our case but because z is reserved I had to rename the variable
@@ -37,9 +37,9 @@ y = np.linspace(-200, 200, 500)
 z = np.linspace(-200, 200, 500)
 
 #for the positive spectrum of the saddles
-#x = np.linspace(0.00000125, 20, 50) #  (0.001, 40, 50) for 21221
-#y = np.linspace(0.0015, 5, 50)
-#z = np.linspace(0.005, 5, 50)  #(0, 10, 50)
+#x = np.linspace(0, 200, 250) #  (0.001, 40, 50) for 21221
+#y = np.linspace(0, 200, 250)
+#z = np.linspace(-1, 0.5, 250)  #(0, 10, 50)
 
 X, Y = np.meshgrid(x, y)
 
@@ -50,14 +50,6 @@ W = saddle_point(X, Y, z)
 X_pos = np.ma.masked_where(X < 0, X)
 Y_pos = np.ma.masked_where(Y < 0, Y)
 W_pos = np.ma.masked_where(W < 0, W)
-
-#print(X_pos)
-#print(Y_pos)
-#for i in range(0, 50):
-#    print(i, W_pos[i])
-
-
-#contour_levels = np.linspace(np.min(W), np.max(W), 10)
 
 # Create a figure and axis
 fig = plt.figure()
@@ -79,7 +71,7 @@ ax.scatter(solution[0], solution[1], solution[2], c='r', marker='o', s=25, zorde
 # Set the axis limits
 # ax.set_xlim(0.0000000001, 2)
 #ax.set_ylim(-10, 10)
-#ax.set_zlim(0, 100000000)
+#ax.set_zlim(-3, 3)
 
 # Add labels and a title
 ax.set_xlabel('x')
