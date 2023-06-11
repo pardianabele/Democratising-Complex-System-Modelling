@@ -12,7 +12,7 @@ g = 2
 d = 1
 
 t = 100 #t = 1000000
-a = 100
+a = 1000
 
 def initial_values(t, p, q):
     k = 1
