@@ -2,10 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sympy as sp
 
-p = 1
-q = 3
+p = 2
+q = 1
 
-f = 3
+f = 1
 g = 2
 d = 1
 
@@ -27,6 +27,11 @@ print("Steady state solution: ", steady_state_sol)
 a = np.linspace(4, 200, 10000)  # avoid division by zero
 
 # Define the steady state solutions
+
+# 21121
+x_7 = 10/ a
+y_7 = 90.0 / a
+z_7 = 0.111 / a
 
 # 13321
 x_6 = 100/ np.power(a, 3)
@@ -61,6 +66,7 @@ z_1 = 0.0486751905452142 / a
 # Create a new figure
 fig = plt.figure()
 
+'''
 # Create a 3D plot
 
 ax = fig.add_subplot(111, projection='3d')
@@ -72,6 +78,19 @@ ax.text(x_2[0], y_2[0], z_2[0], '(2,1)', color='black', weight='bold')
 sc = ax.scatter(x_3, y_3, z_3, c=a, cmap=plt.get_cmap('plasma'))
 ax.text(x_3[0], y_3[0], z_3[0], '(3,2)', color='black', weight='bold')
 '''
+
+# for the 2D projections
+
+ax = fig.add_subplot(111)
+
+sc = ax.scatter(x_1, z_1, c=a, cmap=plt.get_cmap('plasma'))
+ax.text(x_1[0], z_1[0], '(3,1)', color='black', weight='bold')
+sc = ax.scatter(x_2, z_2, c=a, cmap=plt.get_cmap('plasma'))
+ax.text(x_2[0], z_2[0], '(2,1)', color='black', weight='bold')
+sc = ax.scatter(x_3, z_3, c=a, cmap=plt.get_cmap('plasma'))
+ax.text(x_3[0], z_3[0], '(3,2)', color='black', weight='bold')
+
+'''
 sc = ax.scatter(x_4, y_4, z_4, c=a, cmap=plt.get_cmap('plasma'))
 ax.text(x_4[0], y_4[0], z_4[0], '(1,2)', color='black', weight='bold')
 sc = ax.scatter(x_5, y_5, z_5, c=a, cmap=plt.get_cmap('plasma'))
@@ -82,11 +101,11 @@ ax.text(x_6[0], y_6[0], z_6[0]-0.1, '(1,3)', color='black', weight='bold')
 
 fig.colorbar(sc, label='a', pad=0.12)
 
-ax.set_xticks([0, 0.02, 0.05, 0.07, 0.1, 0.12, 0.15])
+#ax.set_xticks([0, 0.02, 0.05, 0.07, 0.1, 0.12, 0.15])
 
-ax.set_xlabel('x_ss')
-ax.set_ylabel('y_ss')
-ax.set_zlabel('b_ss')
+ax.set_xlabel('x$_{sol}$')
+#ax.set_ylabel('y$_{sol}$')
+ax.set_ylabel('b$_{sol}$')
 
 # Show the plot
 plt.show()

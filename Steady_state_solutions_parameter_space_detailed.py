@@ -27,14 +27,14 @@ xx = []
 yy = []
 bb = []
 
-parameter_space = [1, 2, 3, 5]
+parameter_space = [1, 2, 3]
 
 for p in parameter_space:
     for q in parameter_space:
         for f in parameter_space:
             for g in parameter_space:
                 for d in parameter_space:
-                    if p > q and d > g:
+                    if p > q and g > d:
                         solution = fsolve(equations, initial_guess, args=(p, q, f, g, d))
                         if solution[0] > 0 and solution[1] > 0 and solution[2] > 0:
                             pp.append(p)

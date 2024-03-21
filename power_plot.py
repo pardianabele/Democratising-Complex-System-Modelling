@@ -34,7 +34,7 @@ ax.plot(t, z, label='Third order reaction')
 # Add a title, axis labels, and legend
 #ax.set_title("k=0.2")
 ax.set_xlabel("Time steps")
-ax.set_ylabel("Concentration of A")
+ax.set_ylabel("Concentration of A ($\\times 10^{-20}$ mol/L)")
 ax.legend()
 
 # Show the plot

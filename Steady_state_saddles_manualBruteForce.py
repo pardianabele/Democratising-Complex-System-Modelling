@@ -12,12 +12,11 @@ g = 2
 d = 1
 
 t = 100 #t = 1000000
-a = 1000
+a = 50
 
 def initial_values(t, p, q):
-    k = 1
-    x = k*np.power(t, 1/p)
-    y = k*np.power(t, 1/q)
+    x = (p*t)/(p+q)
+    y = (q*t)/(p+q)
     return x, y
 
 def equations(s):
@@ -107,10 +106,12 @@ ax.set_ylabel('y')
 ax.set_zlabel('b')
 
 title = "Saddle Function"
-ax.set_title(f"{title}\n for (\u03b1, \u03b2, f, g, d, a): {p, q, f, g, d, a}")
+ax.set_title(f"{title}\n for (\u03b1, \u03b2, f, g, d): {p, q, f, g, d}")
+#ax.set_title(f"{title}\n for (\u03b1, \u03b2, f, g, d, a): {p, q, f, g, d, a}")
 
 plt.show()
 
+'''
 #---------------------- bifurcation analysis --------------
 
 def plot_2d_slice(xs, ys, zs, vals, y_value):
@@ -163,3 +164,4 @@ title = "Slice of saddle function"
 plt.title(f"{title}\n at (\u03b1, \u03b2, f, g, d, y, a): {p, q, f, g, d, int(y_limit), a}")
 
 plt.show()
+'''

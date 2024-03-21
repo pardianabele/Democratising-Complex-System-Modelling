@@ -11,7 +11,7 @@ g = 2
 d = 1
 
 t = 100
-a = 35 
+a = 100
 
 def initial_values(t, p, q):
     k = 1
@@ -42,19 +42,19 @@ def F(t, y):
 # Initial conditions
 x_limit, y_limit = initial_values(t, p, q)
 y0 = [x_limit, y_limit, 0]
-t = [0, 1000]  # Time range
+t = [0, 10]  # Time range
 
 # Solve the system of equations
 sol = solve_ivp(F, t, y0, dense_output=True)
 
 # Get the solutions
-t = np.linspace(0, 1000, 1000)  # You can adjust the number of points as needed
+t = np.linspace(0, 10, 10)  # You can adjust the number of points as needed
 y = sol.sol(t)
 
 # Plot the phase space trajectory in 3D
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
-ax.scatter(solution[0], solution[1], solution[2], c='r', marker='o', s=25, zorder=20)
+#ax.scatter(solution[0], solution[1], solution[2], c='r', marker='o', s=25, zorder=20)
 ax.plot(y[0], y[1], y[2])
 ax.set_xlabel('x')
 ax.set_ylabel('y')

@@ -11,22 +11,22 @@ def equations(t, y, z, a, p, q, f, g, d):
 
     return [dxdt, dydt, dbdt]
 
-p = 2  # alpha
-q = 1  # betha
+p = 1  # alpha
+q = 2  # betha
 
-f = 1
-g = 3
-d = 2
+f = 3
+g = 2
+d = 1
 
-z = 2
-a = 100
-init = [10, 15, 0]  # x0, y0, b0
+z = 1
+a = 10
+init = [0.3, 0.6, 0]  # x0, y0, b0
 
 # Time range to solve for
-t_eval = np.linspace(0, 10, 5)
+t_eval = np.linspace(0, 3, 3)
 
 # Solve the ODEs
-solution = solve_ivp(equations, (0, 10), init, args=(z, a, p, q, f, g, d), t_eval=t_eval, method='Radau')
+solution = solve_ivp(equations, (0, 3), init, args=(z, a, p, q, f, g, d), t_eval=t_eval, method='Radau')
 
 print(solution.y[0])
 print("--------------------------")
@@ -37,7 +37,7 @@ plt.plot(solution.t, solution.y[0], label='x')
 plt.plot(solution.t, solution.y[1], label='y')
 plt.plot(solution.t, solution.y[2], label='b')
 
-plt.xlabel('time (s)')
-plt.ylabel('concentration')
+plt.xlabel('Time steps')
+plt.ylabel('Concentration (unitless)')
 plt.legend()
 plt.show()
